@@ -154,12 +154,12 @@
 * @param a gad/item Callmonitor call duration
 *
 */
-{% macro callmonitor(id, gad_event, gad_direction, gad_intconn, gad_intnumber, gad_extconn, gad_extnumber, gad_extname, gad_duration) %}
+{% macro callmonitor(id, gad_event, gad_direction, gad_intconn, gad_intnumber, gad_extconn, gad_extnumber, gad_extname, gad_duration, gad_call_timestamp) %}
 	{% import "basic.html" as basic %}
 	{% set uid = uid(page, id) %}
 	<div>
 		<table style="text-align:left" width="100%">
-			<tr><td>Timestamp:&nbsp;</td><td>{{ basic.value(id~'call_timestamp', 'FB_call_timestamp') }}</td></tr>
+			<tr><td>Timestamp:&nbsp;</td><td>{{ basic.value(id~'call_timestamp', gad_call_timestamp) }}</td></tr>
 			<tr><td>Ereignis:&nbsp;</td><td>
 				{{ basic.symbol(id~'ring', gad_event, 'ring', icon1~'phone_ring.png', 'ring') }}
 				{{ basic.symbol(id~'call', gad_event, 'call', icon1~'phone_call_out.png', 'call') }}
